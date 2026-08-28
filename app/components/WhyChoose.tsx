@@ -23,34 +23,36 @@ export default function WhyChoose() {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-white">
-          Why Choose KKZONE?
-        </h2>
+    <section className="bg-black text-white py-20">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Why Choose <span className="text-yellow-400">KKZONE?</span>
+          </h2>
 
-        <p className="text-gray-400 mt-4">
-          Shopping made simple, secure and reliable.
-        </p>
-      </div>
+          <p className="text-gray-400 mt-4">
+            Shopping made simple, secure and reliable.
+          </p>
+        </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {features.map((item) => (
-          <div
-            key={item.title}
-            className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 text-center hover:border-yellow-400 transition duration-300"
-          >
-            <div className="text-5xl">{item.icon}</div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((item) => (
+            <div
+              key={item.title}
+              className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 text-center hover:border-yellow-400 hover:-translate-y-2 transition-all duration-300"
+            >
+              <div className="text-5xl">{item.icon}</div>
 
-            <h3 className="text-xl font-bold text-white mt-5">
-              {item.title}
-            </h3>
+              <h3 className="text-xl font-bold text-white mt-5">
+                {item.title}
+              </h3>
 
-            <p className="text-gray-400 mt-3">
-              {item.desc}
-            </p>
-          </div>
-        ))}
+              <p className="text-gray-400 mt-3 leading-6">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,9 @@
 export const BRAND = {
   name: "KKZONE",
-  slogan: "Premium Products. Better Living.",
+  slogan: "Smart Shopping. Premium Living.",
+};
+
+export const COLORS = {
   primary: "#FACC15",
   background: "#0B0B0B",
   card: "#18181B",
