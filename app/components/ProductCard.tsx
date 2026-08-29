@@ -29,6 +29,7 @@ export default function ProductCard({
       name,
       price,
       image,
+      quantity: 1,
     });
   };
 
