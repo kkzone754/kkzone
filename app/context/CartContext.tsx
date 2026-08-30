@@ -85,20 +85,22 @@ export function CartProvider({
   children: React.ReactNode;
 }) {
   const [cart, setCart] = useState<CartProduct[]>([]);
+  const [isHydrating, setIsHydrating] = useState(true);
 
   // Load cart from localStorage after component mounts.
-  // We deliberately don't set another state inside the effect.
+  // This effect restores the saved cart to React state.
   useEffect(() => {
     const savedCart = localStorage.getItem("kkzone-cart");
 
     if (!savedCart) {
+      setIsHydrating(false);
       return;
     }
 
     try {
       const parsedCart = JSON.parse(savedCart);
       const cleanCart = normalizeCart(parsedCart);
-
+      setCart(cleanCart);
       localStorage.setItem(
         "kkzone-cart",
         JSON.stringify(cleanCart)
@@ -106,10 +108,15 @@ export function CartProvider({
     } catch {
       localStorage.removeItem("kkzone-cart");
     }
+
+    setIsHydrating(false);
   }, []);
 
-  // Save cart whenever it changes
+  // Save cart whenever it changes, but only after hydration.
+  // This prevents overwriting valid saved data with the initial empty array.
   useEffect(() => {
+    if (isHydrating) return;
+
     try {
       localStorage.setItem(
         "kkzone-cart",
@@ -118,7 +125,7 @@ export function CartProvider({
     } catch {
       // Ignore localStorage errors
     }
-  }, [cart]);
+  }, [cart, isHydrating]);
 
   // Add product
   const addToCart = (product: AddToCartProduct) => {
