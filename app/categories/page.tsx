@@ -67,7 +67,7 @@ export default function CategoriesPage() {
             return (
               <Link
                 key={category.name}
-                href="/shop"
+                href={`/shop?category=${encodeURIComponent(category.name)}`}
                 className="group bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-yellow-400 hover:-translate-y-2 transition-all duration-300"
               >
                 <div className="w-16 h-16 rounded-2xl bg-yellow-400/10 flex items-center justify-center">
