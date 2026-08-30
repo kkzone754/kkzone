@@ -38,14 +38,14 @@ export default function CheckoutPage() {
     }
 
     const products = cart
-      .map(
-        (item) =>
-          `• ${item.name} × ${item.quantity}${
-            item.color
-              ? ` — Color: ${item.color}`
-              : ""
-          } — ${item.price}`
-      )
+      .map((item) => {
+        const price = Number(item.price.replace(/[^0-9]/g, ""));
+        const subtotal = price * item.quantity;
+        
+        return `• ${item.name} × ${item.quantity}${
+          item.color ? ` — Color: ${item.color}` : ""
+        } — ${item.price} = Rs. ${subtotal.toLocaleString()}`;
+      })
       .join("\n");
 
     const message = encodeURIComponent(
