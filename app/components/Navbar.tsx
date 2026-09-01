@@ -8,12 +8,12 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-black/90 backdrop-blur border-b border-zinc-800 text-white">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
 
         {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-extrabold tracking-wide"
+          className="text-lg sm:text-2xl font-extrabold tracking-wide shrink-0"
         >
           <span className="text-yellow-400">KK</span>ZONE
         </Link>
@@ -54,11 +54,11 @@ export default function Navbar() {
         </div>
 
         {/* Cart + Shop */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
 
           <Link
             href="/cart"
-            className="relative border border-zinc-700 px-4 py-2 rounded-full hover:border-yellow-400 transition"
+            className="relative border border-zinc-700 px-3 sm:px-4 py-2 rounded-full hover:border-yellow-400 transition text-lg sm:text-base"
           >
             🛒
 
@@ -71,7 +71,7 @@ export default function Navbar() {
 
           <Link
             href="/shop"
-            className="bg-yellow-400 text-black px-5 py-2 rounded-full font-bold hover:scale-105 transition"
+            className="bg-yellow-400 text-black px-3 sm:px-5 py-2 rounded-full font-bold text-sm sm:text-base hover:scale-105 transition"
           >
             Shop Now
           </Link>
