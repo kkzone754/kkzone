@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -41,21 +42,19 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-5 mt-8 sm:mt-10">
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="bg-yellow-400 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold shadow-xl text-sm sm:text-base"
+            <Link
+              href="/shop"
+              className="bg-yellow-400 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold shadow-xl text-sm sm:text-base text-center hover:scale-105 transition"
             >
               🛒 Shop Now
-            </motion.button>
+            </Link>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="border border-yellow-400 text-yellow-400 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold hover:bg-yellow-400 hover:text-black transition text-sm sm:text-base"
+            <Link
+              href="/categories"
+              className="border border-yellow-400 text-yellow-400 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold hover:bg-yellow-400 hover:text-black transition text-sm sm:text-base text-center"
             >
               📦 Browse Categories
-            </motion.button>
+            </Link>
 
           </div>
 
