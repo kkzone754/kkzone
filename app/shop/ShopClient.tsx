@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { products } from "../data/products";
 
@@ -26,6 +26,10 @@ export default function ShopClient({ initialCategory }: ShopClientProps) {
 
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState(validInitialCategory);
+
+  useEffect(() => {
+    setCategory(validInitialCategory);
+  }, [validInitialCategory]);
 
   const filteredProducts = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
