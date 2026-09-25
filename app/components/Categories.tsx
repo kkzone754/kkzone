@@ -47,7 +47,6 @@ export default function Categories() {
                 className="block"
               >
               <motion.div
-                key={category.name}
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
