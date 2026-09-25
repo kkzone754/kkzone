@@ -9,6 +9,7 @@ import {
   Home,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Categories() {
   const categories = [
@@ -40,6 +41,11 @@ export default function Categories() {
             const Icon = category.icon;
 
             return (
+              <Link
+                key={category.name}
+                href={`/shop?category=${encodeURIComponent(category.name)}`}
+                className="block"
+              >
               <motion.div
                 key={category.name}
                 initial={{ opacity: 0, y: 25 }}
@@ -63,6 +69,7 @@ export default function Categories() {
                   {category.name}
                 </h3>
               </motion.div>
+              </Link>
             );
           })}
         </div>
