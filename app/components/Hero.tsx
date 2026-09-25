@@ -61,7 +61,7 @@ export default function Hero() {
           <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4 mt-8 sm:mt-12 text-sm sm:text-base text-gray-300">
             <span>🚚 Fast Delivery</span>
             <span>⭐ Premium Quality</span>
-            <span>🔒 Secure Checkout</span>
+            <span>📦 Easy Order Process</span>
             <span>💬 WhatsApp Support</span>
           </div>
 
