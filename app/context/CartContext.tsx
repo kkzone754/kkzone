@@ -92,24 +92,26 @@ export function CartProvider({
   useEffect(() => {
     const savedCart = localStorage.getItem("kkzone-cart");
 
-    if (!savedCart) {
+    queueMicrotask(() => {
+      if (!savedCart) {
+        setIsHydrating(false);
+        return;
+      }
+
+      try {
+        const parsedCart = JSON.parse(savedCart);
+        const cleanCart = normalizeCart(parsedCart);
+        setCart(cleanCart);
+        localStorage.setItem(
+          "kkzone-cart",
+          JSON.stringify(cleanCart)
+        );
+      } catch {
+        localStorage.removeItem("kkzone-cart");
+      }
+
       setIsHydrating(false);
-      return;
-    }
-
-    try {
-      const parsedCart = JSON.parse(savedCart);
-      const cleanCart = normalizeCart(parsedCart);
-      setCart(cleanCart);
-      localStorage.setItem(
-        "kkzone-cart",
-        JSON.stringify(cleanCart)
-      );
-    } catch {
-      localStorage.removeItem("kkzone-cart");
-    }
-
-    setIsHydrating(false);
+    });
   }, []);
 
   // Save cart whenever it changes, but only after hydration.
